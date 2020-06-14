@@ -19,6 +19,45 @@
     // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+    
+    NSString *text = @"The free function causes the space pointed to by ptr to be deallocated, that is, made available for further allocation. If ptr is a null pointer, no action occurs. Otherwise, if the argument does not match a pointer earlier returned by the calloc, malloc, or realloc function, or if the space has been deallocated by a call to free or realloc, the behavior is undefined.";
+    /*
+    NSRange range = [text rangeOfString:@"calloc, malloc, or realloc function," options:NSCaseInsensitiveSearch];
+    
+    if (range.location != NSNotFound) {
+        NSLog(@"%@", [text substringToIndex:range.location]);
+    } else {
+        NSLog(@"string range not found");
+    }*/
+    
+    /*
+    NSRange searchRange = NSMakeRange(0, [text length]);
+    NSInteger counter = 0;
+    
+    while (TRUE) {
+        NSRange range = [text rangeOfString:@"or" options:NSCaseInsensitiveSearch range:searchRange];
+        
+        if (range.location != NSNotFound) {
+            counter += 1;
+            NSInteger index = range.location + range.length;
+            searchRange.location = index;
+            searchRange.length = text.length - index;
+            
+            NSLog(@"%@", NSStringFromRange(range));
+            
+        } else {
+            NSLog(@"search complited");
+            break;
+        }
+    }
+    NSLog(@"found %ld", counter);
+     */
+    
+    text = [text stringByReplacingOccurrencesOfString:@" " withString:@"\n"];
+    text = [text stringByReplacingOccurrencesOfString:@"," withString:@""];
+    text = [text uppercaseString];
+    NSLog(@"%@", text);
+    
 }
 
 
